@@ -7,6 +7,7 @@ export const GlobalStyles = ()=>{
             "*":{
                 margin: 0,
                 padding: 0,
+                boxSizing:"border-box",
             },
             body:{
                 fontSize:"16px",
