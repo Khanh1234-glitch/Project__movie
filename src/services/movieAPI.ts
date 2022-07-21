@@ -1,3 +1,4 @@
+import { ListSystemCinema } from './../interface/getListSysTemCinema';
 import { SysTemCinema } from './../interface/getSystemCinema';
 import { Movie } from "../interface/movie";
 import axiosClient from "./axiosClient"
@@ -13,8 +14,10 @@ const movieAPI ={
     },
     getInfoSystem:()=>{
         return  axiosClient.get<unknown,SysTemCinema[] >("QuanLyRap/LayThongTinHeThongRap");
+    },
+    getListSystem:()=>{
+        return axiosClient.get<unknown,ListSystemCinema[]>("QuanLyRap/LayThongTinLichChieuHeThongRap");
     }
-    
 }
 
 export default movieAPI

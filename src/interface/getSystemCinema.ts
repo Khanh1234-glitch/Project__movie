@@ -3,4 +3,5 @@ export interface SysTemCinema {
       tenHeThongRap:string,
       biDanh:string,
       logo: string,
+      lstCumRap: string,
 }

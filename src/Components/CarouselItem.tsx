@@ -66,8 +66,6 @@ const CarouselItem = () => {
   return (
     <div  className="container">
     <div className={classes.container}>
-    
-
       {data &&data.map((MovieList) => {
         return (
           <div  className={classes.container__card} >

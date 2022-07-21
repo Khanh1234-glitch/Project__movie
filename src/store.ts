@@ -1,4 +1,5 @@
-import createinfoSystem from "./slices/infoSystem";
+import { createListSysTem } from './slices/listSysTemCinema';
+import {createinfoSystem } from "./slices/infoSystem";
 import MovieList from "./slices/getmoviesList";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import movie from "./slices/movies";
@@ -9,6 +10,7 @@ const store = configureStore({
   reducer: {
     movie,
     MovieList,
+    createListSysTem,
     createinfoSystem,
   },
   middleware: [thunk, logger]

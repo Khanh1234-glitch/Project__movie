@@ -11,5 +11,5 @@ export interface Movie {
     hot:           boolean,
     dangChieu:     boolean,
     sapChieu:      boolean,
-    items: string[],
+    items:         string[],
 }
