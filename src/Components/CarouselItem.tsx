@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {MovieList} from "../slices/getmoviesList";
+import {MovieList} from "../slices/moviesList";
 import { RootState } from "../store";
 import { useEffect } from "react";
 
@@ -54,21 +54,21 @@ const useState = createStyles(() => ({
 
 const CarouselItem = () => {
   const { data, error, isLoading } = useSelector(
-    (state: RootState) => state.MovieList,
+    (state: RootState) => state.movieList,
   );
   const { classes, cx } = useState();
   const dispatch = useDispatch<any>();
   useEffect(() => {
     dispatch(MovieList());
   }, []);
-  console.log("data Carousel",data);
+
   
   return (
     <div  className="container">
     <div className={classes.container}>
       {data &&data.map((MovieList) => {
         return (
-          <div  className={classes.container__card} >
+          <div id="lichchieu" className={classes.container__card} >
             <div className={classes.card}>
               <div className="content__card">
                 <div className="card__img">

@@ -1,6 +1,7 @@
 import { createStyles, Group } from "@mantine/core";
 import IMG from "./../img/download.png";
 import { FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 interface Props {
   className?: string;
 }
@@ -62,8 +63,8 @@ const Header = ({ className }: Props) => {
       }}
     >
       <nav className="navbar navbar-expand-xl navbar-light ">
-        <a className="navbar-brand" href="#">
-          <img src={IMG} width={"50px"} alt="" />
+        <a className="navbar-brand" href="/#">
+         <img src={IMG} width={"50px"} alt="" />
         </a>
         <button
           className="navbar-toggler"
@@ -81,40 +82,41 @@ const Header = ({ className }: Props) => {
             className="navbar-nav mr-auto"
             style={{ transform: "translateX(50vh)" }}
           >
-            <li className="nav-item ">
-              <a className={cx(classes.link__a, className)} href="#">
+            <li className="nav-item active">
+         <a className={cx(classes.link__a, className)} href="/#lichchieu">
                 Lịch chiếu
-              </a>
+              </a>   
             </li>
             <li className="nav-item">
-              <a className={cx(classes.link__a, className)} href="#">
+            <a className={cx(classes.link__a, className)} href="/#cumrap">
                 Cụm rạp
-              </a>
+              </a>      
+            </li>
+            <li className="nav-item">
+            <a className={cx(classes.link__a, className)} href="/#ungdung">
+                Ứng dụng
+              </a>     
             </li>
             <li className="nav-item ">
-              <a className={cx(classes.link__a, className)} href="#">
+            <a className={cx(classes.link__a, className)} href="/#tintuc">
                 Tin tức
-              </a>
+              </a>     
             </li>
-            <li className="nav-item">
-              <a className={cx(classes.link__a, className)} href="#">
-                Ứng dụng
-              </a>
-            </li>
+
           </ul>
           <div className={classes.sign__in__register}>
             <div className="sign__in">
-              <a className={classes.btn__a} href="#">
+              <Link to="/sign__in" className={classes.btn__a} >
                 <FaUserCircle style={{fontSize:"25px", marginRight:"10px"}}  />
                 Đăng nhập
-              </a>
+              </Link>
             </div>
             <hr className={classes.disconnexion} />
             <div className="resgister">
-              <a className={classes.btn__a} href="#">
+              <Link to="/register" className={classes.btn__a} >
                 <FaUserCircle style={{fontSize:"25px", marginRight:"10px"}}  />
                 Đăng kí
-              </a>
+              </Link>
             </div>
           </div>
         </div>

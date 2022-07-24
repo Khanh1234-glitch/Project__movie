@@ -1,10 +1,12 @@
+import { LstCumRap } from './../interface/lstCumRap';
 import { AxiosError } from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import movieAPI from "../services/movieAPI";
-import { SysTemCinema } from "../interface/getSystemCinema";
+import { SystemCinema } from "../interface/systemCinema";
+import manamentCinemaAPI from '../services/manamentCineAPI';
 
 interface SystemState {
-  data: SysTemCinema[];
+  data: SystemCinema[];
   isLoading: boolean;
   error: string;
 }
@@ -18,7 +20,7 @@ export const createinfoSystem = createAsyncThunk(
   "infoSystem/getInfoSystem",
   async () => {
     try {
-      const data = await movieAPI.getInfoSystem();
+      const data = await manamentCinemaAPI.getInfoSystem();
       return data;
     } catch (error) {
       const err = (error as AxiosError).response?.data as any;
@@ -26,6 +28,7 @@ export const createinfoSystem = createAsyncThunk(
     }
   }
 );
+
 export const createInfoMovieSlice = createSlice({
   name: "infoSystem",
   initialState,

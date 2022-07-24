@@ -8,6 +8,7 @@ export const GlobalStyles = ()=>{
                 margin: 0,
                 padding: 0,
                 boxSizing:"border-box",
+                scrollBehavior:"smooth",
             },
             body:{
                 fontSize:"16px",

@@ -1,37 +1,67 @@
-import IMG from "./../img/download.png";
+
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { useEffect } from "react";
 import { createinfoSystem } from "../slices/infoSystem";
-import type { RadioChangeEvent } from "antd";
-import { Radio, Space, Tabs } from "antd";
-import React, { useState } from "react";
+import { Tabs } from "antd";
+import { useState } from "react";
 import "antd/dist/antd.css";
-import { SysTemCinema } from "../interface/getSystemCinema";
 const TableListMovie = () => {
   const { data, isLoading, error } = useSelector(
-    (state: RootState) => state.createinfoSystem
+    (state: RootState) => state.infoSystem
+    
   );
+  
   const dispatch = useDispatch<any>();
   useEffect(() => {
     dispatch(createinfoSystem());
   }, []);
   const { TabPane } = Tabs;
   type TabPosition = "left" | "right" | "top" | "bottom";
-  const [tabPosition, setTabPosition] = useState<TabPosition>("left");
+  const [tabPosition] = useState<TabPosition>("left");
+  console.log("Data13",data);
+
   return (
     <>
-    {/* {data?.map((item: SysTemCinema[],index: number)=>{
-      return(
-        <div className="container">
+      <div id="cumrap" className="container">
         <Tabs tabPosition={tabPosition}>
-          <TabPane tab={<img  className="rounded-full" width={"50px"}/>} key={index} >
-          </TabPane>
+          {data?.map((infoSystem, index) => {
+            return (
+              <TabPane
+                tab={
+                  <img
+                    src={infoSystem.logo}
+                    className="rounded-full"
+                    width={"50px"}
+                  />
+                }
+                key={index}
+              >
+                <Tabs tabPosition={tabPosition}>
+                  <>
+                    {/* {data.content.lstCumRap.map((cumrap, index) => {
+                      return (
+                        <TabPane
+                          tab={
+                            <img
+                              src={infoSystem.logo}
+                              className="rounded-full"
+                              width={"50px"}
+                            />
+                          }
+                          key={index}
+                        >
+                          {infoSystem.tenCumRap}
+                        </TabPane>
+                      );
+                    })} */}
+                  </>
+                </Tabs>
+              </TabPane>
+            );
+          })}
         </Tabs>
       </div>
-      )
-    })} */}
-
     </>
   );
 };

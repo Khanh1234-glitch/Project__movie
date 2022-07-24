@@ -16,7 +16,7 @@ const MainTemplate = () => {
         {/* Header */}
         <Header></Header>
         {/* Body */}
-        {/* <Carousel></Carousel> */}
+
         <Box sx={{flex:1}}>
             <Outlet/>
         </Box>
